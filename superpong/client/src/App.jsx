@@ -4,7 +4,7 @@ import GameCanvas from './components/GameCanvas';
 import { COUNTRIES } from './constants/countries';
 
 // Connect to backend (assumed localhost:3000 for dev)
-const socket = io('http://localhost:3000', {
+const socket = io('https://superpong.onrender.com', {
     autoConnect: false
 });
 
