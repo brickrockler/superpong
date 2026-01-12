@@ -1,0 +1,109 @@
+:root {
+  /* Google I/O Palette */
+  --color-bg: #000000;
+  --color-google-blue: #4285F4;
+  --color-google-red: #EA4335;
+  --color-google-yellow: #FBBC04;
+  --color-google-green: #34A853;
+  --color-text: #ffffff;
+  
+  /* Gradients */
+  --gradient-rainbow: linear-gradient(90deg, var(--color-google-blue), var(--color-google-red), var(--color-google-yellow), var(--color-google-green));
+  --gradient-blue-red: linear-gradient(135deg, var(--color-google-blue), var(--color-google-red));
+  
+  /* Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  overflow: hidden; /* Prevent scrolling during game */
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Typography & Titles */
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.io-brand {
+  background: var(--gradient-rainbow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Premium Buttons */
+button {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid white;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-rainbow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+button:hover {
+  border-color: transparent;
+  transform: scale(1.05);
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+/* Canvas Container */
+.game-container {
+  position: relative;
+  box-shadow: 0 0 100px rgba(66, 133, 244, 0.2); /* Subtle blue glow */
+  border-radius: 4px;
+}
+
+canvas {
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  border: 1px solid #333;
+}
